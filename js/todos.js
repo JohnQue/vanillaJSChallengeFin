@@ -45,8 +45,10 @@ function delButtonClickHandler(event){
 function submitHandler(event){
     event.preventDefault();
     const currentToDo = toDoInput.value;
-    toDoInput.value = '';
-    paintToDo(currentToDo);
+    if(currentToDo !== ''){
+        toDoInput.value = '';
+        paintToDo(currentToDo);
+    }
 }
 
 function loadToDos(){

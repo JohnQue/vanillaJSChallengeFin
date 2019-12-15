@@ -40,11 +40,13 @@ function buttonClickHandler(event){
 function submitHandler(event){
     event.preventDefault();
     const currentValue = input.value;
-    localStorage.setItem(USERNAME, currentValue);
-    form.classList.remove(SHOWING);
-    greetings.classList.add(SHOWING);
-    displayName(currentValue);
-    input.value = "";
+    if(currentValue !== ''){
+        localStorage.setItem(USERNAME, currentValue);
+        form.classList.remove(SHOWING);
+        greetings.classList.add(SHOWING);
+        displayName(currentValue);
+        input.value = "";
+    }
 }
 
 function init(){
