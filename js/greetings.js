@@ -8,7 +8,7 @@ function displayName(text){
     const span = document.createElement("span");
     const button = document.createElement("button");
     span.innerHTML = `Hello ${text}`;
-    button.innerHTML = "X";
+    button.innerHTML = "❌";
     button.classList.add("btn");
     button.addEventListener("click", buttonClickHandler);
     greetings.appendChild(span);
@@ -40,7 +40,7 @@ function buttonClickHandler(event){
 function submitHandler(event){
     event.preventDefault();
     const currentValue = input.value;
-    if(currentValue !== ''){
+    if(currentValue.replace(/^\s*/, "") !== ''){
         localStorage.setItem(USERNAME, currentValue);
         form.classList.remove(SHOWING);
         greetings.classList.add(SHOWING);

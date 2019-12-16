@@ -17,7 +17,7 @@ function paintToDo(text){
     const delButton = document.createElement("button");
     
     span.innerText = text;
-    delButton.innerText = "X";
+    delButton.innerText = "❌";
     delButton.classList.add("btn");
     delButton.addEventListener("click", delButtonClickHandler);
     li.appendChild(delButton);
@@ -45,7 +45,7 @@ function delButtonClickHandler(event){
 function submitHandler(event){
     event.preventDefault();
     const currentToDo = toDoInput.value;
-    if(currentToDo !== ''){
+    if(currentToDo.replace(/^\s*/, "") !== ''){
         toDoInput.value = '';
         paintToDo(currentToDo);
     }
